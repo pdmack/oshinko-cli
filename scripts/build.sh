@@ -1,7 +1,7 @@
 #!/bin/sh
 set -ex
-TOP_DIR=$(readlink -f `dirname "$0"` | grep -o '.*/oshinko-cli')
-. $TOP_DIR/sparkimage.sh
+SCRIPT_DIR=$(readlink -f `dirname "$0"`)
+. ${SCRIPT_DIR%/*}/sparkimage.sh
 
 go get github.com/renstrom/dedent
 go get github.com/docker/go-connections/nat

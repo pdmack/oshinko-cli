@@ -129,7 +129,7 @@ install -d %{buildroot}%{_bindir}
 
 # Install linux components
 echo "+++ INSTALLING %{name}"
-install -p -m 755 _output/local/bin/${PLATFORM}/%{name} %{buildroot}%{_bindir}/%{name}
+install -p -m 755 _output/local/bin/${PLATFORM}/%{name} %{buildroot}%{_bindir}/oshinko
 
 # Install tests
 install -d %{buildroot}%{_libexecdir}/%{name}
@@ -139,9 +139,9 @@ install -p -m 755 _output/local/bin/${PLATFORM}/ginkgo %{buildroot}%{_libexecdir
 %if 0%{?make_redistributable}
 # Install client executable for windows and mac
 install -d %{buildroot}%{_datadir}/%{name}/{linux,macosx,windows}
-install -p -m 755 _output/local/bin/linux/amd64/oc %{buildroot}%{_datadir}/%{name}/linux/%{name}
-install -p -m 755 _output/local/bin/darwin/amd64/oc %{buildroot}/%{_datadir}/%{name}/macosx/%{name}
-install -p -m 755 _output/local/bin/windows/amd64/oc.exe %{buildroot}/%{_datadir}/%{name}/windows/%{name}.exe
+install -p -m 755 _output/local/bin/linux/amd64/oc %{buildroot}%{_datadir}/%{name}/linuxa/oshinko
+install -p -m 755 _output/local/bin/darwin/amd64/oc %{buildroot}/%{_datadir}/%{name}/macosx/oshinko
+install -p -m 755 _output/local/bin/windows/amd64/oc.exe %{buildroot}/%{_datadir}/%{name}/windows/oshinko.exe
 %endif
 
 
@@ -174,15 +174,11 @@ chmod 644 %{buildroot}%{_sysconfdir}/bash_completion.d/%{name}
 %dir %{_datadir}/%{name}/linux/
 %dir %{_datadir}/%{name}/macosx/
 %dir %{_datadir}/%{name}/windows/
-%{_datadir}/%{name}/linux/%{name}
-%{_datadir}/%{name}/macosx/%{name}
-%{_datadir}/%{name}/windows/%{name}.exe
+%{_datadir}/%{name}/linux/oshinko
+%{_datadir}/%{name}/macosx/oshinko
+%{_datadir}/%{name}/windows/oshinko.exe
 %endif
 
 %changelog
 * Fri Nov 10 2017 Peter MacKinnon <pmackinn@redhat.com> v0.4.1-1
 - new package built with tito
-
-* Fri Nov 10 2017 Peter MacKinnon <pmackinn@redhat.com> v0.4.1-1
-- new package built with tito
-
