@@ -52,7 +52,7 @@
 %global product_name radanalytics.io
 
 %{!?version: %global version v0.4.1}
-%{!?release: %global release 1}
+%{!?release: %global release 2}
 
 Name:           %{package_name}
 Version:        %{version}
@@ -180,5 +180,8 @@ chmod 644 %{buildroot}%{_sysconfdir}/bash_completion.d/%{name}
 %endif
 
 %changelog
+* Tue Nov 14 2017 Peter MacKinnon <pmackinn@redhat.com> v0.4.1-2
+- Updates to spec and build script (pmackinn@redhat.com)
+
 * Fri Nov 10 2017 Peter MacKinnon <pmackinn@redhat.com> v0.4.1-1
 - new package built with tito
