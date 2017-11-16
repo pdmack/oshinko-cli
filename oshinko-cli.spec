@@ -52,7 +52,7 @@
 %global product_name radanalytics.io
 
 %{!?version: %global version v0.4.1}
-%{!?release: %global release 4}
+%{!?release: %global release 5}
 
 Name:           %{package_name}
 Version:        %{version}
@@ -95,7 +95,7 @@ is designed to run in an OpenShift project.
 %if 0%{do_build}
 %if 0%{make_redistributable}
 # Create Binaries for all supported arches
-%{os_git_vars} OS_BUILD_RELEASE_ARCHIVES=n make -t build
+%{os_git_vars} OS_BUILD_RELEASE_ARCHIVES=n make build tag=%{release}
 %{os_git_vars} hack/build-go.sh vendor/github.com/onsi/ginkgo/ginkgo
 %else
 # Create Binaries only for building arch
