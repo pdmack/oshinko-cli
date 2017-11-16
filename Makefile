@@ -3,7 +3,7 @@ LOCAL_IMAGE=project/oshinko-cli
 .PHONY: all build test clean
 
 build:
-	scripts/build.sh build
+	scripts/build.sh -t $(tag) build
 
 image:
 	sudo docker build -t $(LOCAL_IMAGE) .
