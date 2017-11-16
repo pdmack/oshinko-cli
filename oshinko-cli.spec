@@ -52,7 +52,7 @@
 %global product_name radanalytics.io
 
 %{!?version: %global version v0.4.1}
-%{!?release: %global release 2}
+%{!?release: %global release 3}
 
 Name:           %{package_name}
 Version:        %{version}
@@ -180,6 +180,12 @@ chmod 644 %{buildroot}%{_sysconfdir}/bash_completion.d/%{name}
 %endif
 
 %changelog
+* Thu Nov 16 2017 Peter MacKinnon <pmackinn@redhat.com> v0.4.1-3
+- Further make/build script fixes (pmackinn@redhat.com)
+
+* Thu Nov 16 2017 Peter MacKinnon <pmackinn@redhat.com>
+- Further make/build script fixes (pmackinn@redhat.com)
+
 * Tue Nov 14 2017 Peter MacKinnon <pmackinn@redhat.com> v0.4.1-2
 - Updates to spec and build script (pmackinn@redhat.com)
 
