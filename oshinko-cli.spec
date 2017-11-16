@@ -180,6 +180,9 @@ chmod 644 %{buildroot}%{_sysconfdir}/bash_completion.d/%{name}
 %endif
 
 %changelog
+* Thu Nov 16 2017 Peter MacKinnon <pmackinn@redhat.com> v0.4.1-5
+- Fixed wrong make syntax (pmackinn@redhat.com)
+
 * Thu Nov 16 2017 Peter MacKinnon <pmackinn@redhat.com> v0.4.1-4
 - Spec make build switched to accept release tag (pmackinn@redhat.com)
 
