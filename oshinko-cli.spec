@@ -52,7 +52,8 @@
 %global product_name radanalytics.io
 
 %{!?version: %global version v0.4.1}
-%{!?release: %global release 5}
+%{!?release: %global release 6}
+%{!?gitver: %global gitver %{name}-%{version}-%{release} }
 
 Name:           %{package_name}
 Version:        %{version}
@@ -95,7 +96,7 @@ is designed to run in an OpenShift project.
 %if 0%{do_build}
 %if 0%{make_redistributable}
 # Create Binaries for all supported arches
-%{os_git_vars} OS_BUILD_RELEASE_ARCHIVES=n make build tag=%{release}
+%{os_git_vars} OS_BUILD_RELEASE_ARCHIVES=n make build tag=%{gitver}
 %{os_git_vars} hack/build-go.sh vendor/github.com/onsi/ginkgo/ginkgo
 %else
 # Create Binaries only for building arch
@@ -114,7 +115,7 @@ is designed to run in an OpenShift project.
 %ifarch s390x
   BUILD_PLATFORM="linux/s390x"
 %endif
-OS_ONLY_BUILD_PLATFORMS="${BUILD_PLATFORM}" %{os_git_vars} OS_BUILD_RELEASE_ARCHIVES=n make -t %{release} build
+OS_ONLY_BUILD_PLATFORMS="${BUILD_PLATFORM}" %{os_git_vars} OS_BUILD_RELEASE_ARCHIVES=n make build tag=%{gitver}
 OS_ONLY_BUILD_PLATFORMS="${BUILD_PLATFORM}" %{os_git_vars} hack/build-go.sh vendor/github.com/onsi/ginkgo/ginkgo
 %endif
 
