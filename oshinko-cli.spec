@@ -12,7 +12,7 @@
 # %commit and %os_git_vars are intended to be set by tito custom builders provided
 # in the .tito/lib directory. The values in this spec file will not be kept up to date.
 %{!?commit:
-%global commit 139f174e6f7e00bee34dd1594852231c04a7f07a
+%global commit 43b524524a9fc59bf73052a5f8e47b0649c96707
 }
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 # os_git_vars needed to run hack scripts during rpm builds
@@ -181,6 +181,12 @@ chmod 644 %{buildroot}%{_sysconfdir}/bash_completion.d/%{name}
 %endif
 
 %changelog
+* Fri Nov 17 2017 Peter MacKinnon <pmackinn@redhat.com> 0.5.1-1
+- tito tagging 
+
+* Fri Nov 17 2017 Peter MacKinnon <pmackinn@redhat.com>
+- tito tagging 
+
 * Thu Nov 16 2017 Peter MacKinnon <pmackinn@redhat.com> v0.4.1-6
 - More wrong make syntax (pmackinn@redhat.com)
 
