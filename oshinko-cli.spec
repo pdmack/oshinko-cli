@@ -12,7 +12,7 @@
 # %commit and %os_git_vars are intended to be set by tito custom builders provided
 # in the .tito/lib directory. The values in this spec file will not be kept up to date.
 %{!?commit:
-%global commit 82491923d7fb17fb535a1e76221f570ed33457cb
+%global commit 139f174e6f7e00bee34dd1594852231c04a7f07a
 }
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 # os_git_vars needed to run hack scripts during rpm builds
@@ -51,12 +51,12 @@
 %global package_name oshinko-cli
 %global product_name radanalytics.io
 
-%{!?version: %global version v0.4.1}
-%{!?release: %global release 6}
+%{!?version: %global version v0.5.1}
+%{!?release: %global release 1}
 %{!?gitver: %global gitver %{name}-%{version}-%{release} }
 
 Name:           %{package_name}
-Version:        1.6.1
+Version:        0.5.1
 Release:        1
 Summary:        Spark Cluster Management for OpenShift
 License:        ASL 2.0
@@ -197,4 +197,4 @@ chmod 644 %{buildroot}%{_sysconfdir}/bash_completion.d/%{name}
 - Updates to spec and build script (pmackinn@redhat.com)
 
 * Fri Nov 10 2017 Peter MacKinnon <pmackinn@redhat.com> v0.4.1-1
-- new package built with tito
+- New package built with tito
