@@ -12,7 +12,7 @@
 # %commit and %os_git_vars are intended to be set by tito custom builders provided
 # in the .tito/lib directory. The values in this spec file will not be kept up to date.
 %{!?commit:
-%global commit c71388d33b25f8cb8a2458a96e53a1c0991f6fcb
+%global commit 82491923d7fb17fb535a1e76221f570ed33457cb
 }
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 # os_git_vars needed to run hack scripts during rpm builds
@@ -181,33 +181,6 @@ chmod 644 %{buildroot}%{_sysconfdir}/bash_completion.d/%{name}
 %endif
 
 %changelog
-* Fri Nov 17 2017 Peter MacKinnon <pmackinn@redhat.com> 1.6.1-1
-- Automatic commit of package [oshinko-cli] release [1.6.0-0.1].
-  (pmackinn@redhat.com)
-- Automatic commit of package [oshinko-cli] release [v0.4.1-6].
-  (pmackinn@redhat.com)
-- More wrong make syntax (pmackinn@redhat.com)
-- Automatic commit of package [oshinko-cli] release [v0.4.1-5].
-  (pmackinn@redhat.com)
-- Fixed wrong make syntax (pmackinn@redhat.com)
-- Automatic commit of package [oshinko-cli] release [v0.4.1-4].
-  (pmackinn@redhat.com)
-- Spec make build switched to accept release tag (pmackinn@redhat.com)
-- Automatic commit of package [oshinko-cli] release [v0.4.1-3].
-  (pmackinn@redhat.com)
-- Further make/build script fixes (pmackinn@redhat.com)
-- Automatic commit of package [oshinko-cli] release [v0.4.1-2].
-  (pmackinn@redhat.com)
-- Updates to spec and build script (pmackinn@redhat.com)
-- Automatic commit of package [oshinko-cli] release [v0.4.1-1].
-  (pmackinn@redhat.com)
-- Initialized to use tito. (pmackinn@redhat.com)
-- Initialized to use tito. (pmackinn@redhat.com)
-- Initialized to use tito. (pmackinn@redhat.com)
-
-* Fri Nov 17 2017 Peter MacKinnon <pmackinn@redhat.com> 1.6.0-0.1
-- Test tito lib 
-
 * Thu Nov 16 2017 Peter MacKinnon <pmackinn@redhat.com> v0.4.1-6
 - More wrong make syntax (pmackinn@redhat.com)
 
@@ -218,9 +191,6 @@ chmod 644 %{buildroot}%{_sysconfdir}/bash_completion.d/%{name}
 - Spec make build switched to accept release tag (pmackinn@redhat.com)
 
 * Thu Nov 16 2017 Peter MacKinnon <pmackinn@redhat.com> v0.4.1-3
-- Further make/build script fixes (pmackinn@redhat.com)
-
-* Thu Nov 16 2017 Peter MacKinnon <pmackinn@redhat.com>
 - Further make/build script fixes (pmackinn@redhat.com)
 
 * Tue Nov 14 2017 Peter MacKinnon <pmackinn@redhat.com> v0.4.1-2
