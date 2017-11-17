@@ -56,8 +56,8 @@
 %{!?gitver: %global gitver %{name}-%{version}-%{release} }
 
 Name:           %{package_name}
-Version:        %{version}
-Release:        %{release}%{package_dist}
+Version:        1.6.0
+Release:        0.1
 Summary:        Spark Cluster Management for OpenShift
 License:        ASL 2.0
 URL:            https://%{import_path}
@@ -181,6 +181,9 @@ chmod 644 %{buildroot}%{_sysconfdir}/bash_completion.d/%{name}
 %endif
 
 %changelog
+* Fri Nov 17 2017 Peter MacKinnon <pmackinn@redhat.com> 1.6.0-0.1
+- Test tito lib 
+
 * Thu Nov 16 2017 Peter MacKinnon <pmackinn@redhat.com> v0.4.1-6
 - More wrong make syntax (pmackinn@redhat.com)
 
