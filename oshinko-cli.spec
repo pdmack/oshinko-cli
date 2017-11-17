@@ -12,12 +12,12 @@
 # %commit and %os_git_vars are intended to be set by tito custom builders provided
 # in the .tito/lib directory. The values in this spec file will not be kept up to date.
 %{!?commit:
-%global commit c31bb84828528b700122466994eb3f64f177d7d2
+%global commit c71388d33b25f8cb8a2458a96e53a1c0991f6fcb
 }
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 # os_git_vars needed to run hack scripts during rpm builds
 %{!?os_git_vars:
-%global os_git_vars OS_GIT_VERSION='' OS_GIT_COMMIT='' OS_GIT_MAJOR='' OS_GIT_MINOR='' OS_GIT_TREE_STATE='' OS_GIT_CATALOG_VERSION=''
+%global os_git_vars OS_GIT_MINOR=8+ OS_GIT_MAJOR=3 OS_GIT_VERSION=v3.8.0-alpha.0+a70f279-78 OS_GIT_TREE_STATE=clean OS_GIT_CATALOG_VERSION=v0.1.2 OS_GIT_COMMIT=a70f279
 }
 
 %if 0%{?skip_build}
@@ -56,8 +56,8 @@
 %{!?gitver: %global gitver %{name}-%{version}-%{release} }
 
 Name:           %{package_name}
-Version:        1.6.0
-Release:        0.1
+Version:        1.6.1
+Release:        1
 Summary:        Spark Cluster Management for OpenShift
 License:        ASL 2.0
 URL:            https://%{import_path}
@@ -181,6 +181,30 @@ chmod 644 %{buildroot}%{_sysconfdir}/bash_completion.d/%{name}
 %endif
 
 %changelog
+* Fri Nov 17 2017 Peter MacKinnon <pmackinn@redhat.com> 1.6.1-1
+- Automatic commit of package [oshinko-cli] release [1.6.0-0.1].
+  (pmackinn@redhat.com)
+- Automatic commit of package [oshinko-cli] release [v0.4.1-6].
+  (pmackinn@redhat.com)
+- More wrong make syntax (pmackinn@redhat.com)
+- Automatic commit of package [oshinko-cli] release [v0.4.1-5].
+  (pmackinn@redhat.com)
+- Fixed wrong make syntax (pmackinn@redhat.com)
+- Automatic commit of package [oshinko-cli] release [v0.4.1-4].
+  (pmackinn@redhat.com)
+- Spec make build switched to accept release tag (pmackinn@redhat.com)
+- Automatic commit of package [oshinko-cli] release [v0.4.1-3].
+  (pmackinn@redhat.com)
+- Further make/build script fixes (pmackinn@redhat.com)
+- Automatic commit of package [oshinko-cli] release [v0.4.1-2].
+  (pmackinn@redhat.com)
+- Updates to spec and build script (pmackinn@redhat.com)
+- Automatic commit of package [oshinko-cli] release [v0.4.1-1].
+  (pmackinn@redhat.com)
+- Initialized to use tito. (pmackinn@redhat.com)
+- Initialized to use tito. (pmackinn@redhat.com)
+- Initialized to use tito. (pmackinn@redhat.com)
+
 * Fri Nov 17 2017 Peter MacKinnon <pmackinn@redhat.com> 1.6.0-0.1
 - Test tito lib 
 
