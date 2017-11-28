@@ -57,7 +57,7 @@
 
 Name:           %{package_name}
 Version:        0.5.1
-Release:        1
+Release:        2
 Summary:        Spark Cluster Management for OpenShift
 License:        ASL 2.0
 URL:            https://%{import_path}
@@ -182,9 +182,6 @@ chmod 644 %{buildroot}%{_sysconfdir}/bash_completion.d/%{name}
 
 %changelog
 * Fri Nov 17 2017 Peter MacKinnon <pmackinn@redhat.com> 0.5.1-1
-- tito tagging 
-
-* Fri Nov 17 2017 Peter MacKinnon <pmackinn@redhat.com>
 - tito tagging 
 
 * Thu Nov 16 2017 Peter MacKinnon <pmackinn@redhat.com> v0.4.1-6
