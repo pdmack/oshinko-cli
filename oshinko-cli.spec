@@ -12,7 +12,7 @@
 # %commit is intended to be set by tito custom builders provided
 # in the .tito/lib directory. The value in this spec file will not be kept up to date.
 %{!?commit:
-%global commit 8175defcbe2311f37ca4b858d2dbb7db002412e9
+%global commit b510c5f61d28fbe50731d5327078da19527f2ce5
 }
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 
@@ -52,7 +52,7 @@
 %{!?gitver: %global gitver %{name}-%{version}-%{release} }
 
 Name:           %{package_name}
-Version:        0.5.3
+Version:        0.5.4
 Release:        1
 Summary:        Spark Cluster Management for OpenShift
 License:        ASL 2.0
@@ -177,6 +177,9 @@ chmod 644 %{buildroot}%{_sysconfdir}/bash_completion.d/%{name}
 %endif
 
 %changelog
+* Tue Nov 28 2017 Peter MacKinnon <pmackinn@redhat.com> 0.5.4-1
+- Clean up os_git_var refs in spec file (pmackinn@redhat.com)
+
 * Tue Nov 28 2017 Peter MacKinnon <pmackinn@redhat.com> 0.5.3-1
 - Remove ldflags lookups since we set that directly in build.sh
   (pmackinn@redhat.com)
