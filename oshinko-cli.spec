@@ -12,13 +12,9 @@
 # %commit and %os_git_vars are intended to be set by tito custom builders provided
 # in the .tito/lib directory. The values in this spec file will not be kept up to date.
 %{!?commit:
-%global commit 43b524524a9fc59bf73052a5f8e47b0649c96707
+%global commit 67bbc5bb85e54574ceecde415b4e85a641546504
 }
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
-# os_git_vars needed to run hack scripts during rpm builds
-%{!?os_git_vars:
-%global os_git_vars OS_GIT_MINOR=8+ OS_GIT_MAJOR=3 OS_GIT_VERSION=v3.8.0-alpha.0+a70f279-78 OS_GIT_TREE_STATE=clean OS_GIT_CATALOG_VERSION=v0.1.2 OS_GIT_COMMIT=a70f279
-}
 
 %if 0%{?skip_build}
 %global do_build 0
