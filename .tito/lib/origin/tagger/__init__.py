@@ -3,7 +3,7 @@ Code for tagging Origin packages
 """
 from tito.tagger import VersionTagger
 
-from ..common import inject_os_git_vars, update_global_hash
+from ..common import update_global_hash
 
 class OriginTagger(VersionTagger):
     """
@@ -36,7 +36,6 @@ class OriginTagger(VersionTagger):
 
     def _tag_release(self):
         update_global_hash(self.spec_file)
-        inject_os_git_vars(self.spec_file)
         super(OriginTagger, self)._tag_release()
 
     def _get_tag_for_version(self, version):

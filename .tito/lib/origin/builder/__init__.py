@@ -6,8 +6,6 @@ import json
 from tito.common import get_latest_commit, run_command
 from tito.builder import Builder
 
-from ..common import inject_os_git_vars
-
 class OriginBuilder(Builder):
     """
     builder which defines 'commit' as the git hash prior to building
@@ -35,7 +33,6 @@ class OriginBuilder(Builder):
         if self.test and not self.ran_setup_test_specfile:
             super(OriginBuilder, self)._setup_test_specfile()
 
-            inject_os_git_vars(self.spec_file)
             self._inject_bundled_deps()
 
     def _inject_bundled_deps(self):
