@@ -18,16 +18,14 @@ class OriginBuilder(Builder):
 
     def _get_rpmbuild_dir_options(self):
         git_hash = get_latest_commit()
-        cmd = 'source ./hack/lib/init.sh; os::build::ldflags'
-        ldflags = run_command("bash -c '{0}'".format(cmd))
 
         return ('--define "_topdir %s" --define "_sourcedir %s" --define "_builddir %s" '
-                '--define "_srcrpmdir %s" --define "_rpmdir %s" --define "ldflags %s" '
+                '--define "_srcrpmdir %s" --define "_rpmdir %s" '
                 '--define "commit %s" ' % (
                     self.rpmbuild_dir,
                     self.rpmbuild_sourcedir, self.rpmbuild_builddir,
                     self.rpmbuild_basedir, self.rpmbuild_basedir,
-                    ldflags, git_hash))
+                    git_hash))
 
     def _setup_test_specfile(self):
         if self.test and not self.ran_setup_test_specfile:
