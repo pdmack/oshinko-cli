@@ -12,7 +12,7 @@
 # %commit and %os_git_vars are intended to be set by tito custom builders provided
 # in the .tito/lib directory. The values in this spec file will not be kept up to date.
 %{!?commit:
-%global commit 67bbc5bb85e54574ceecde415b4e85a641546504
+%global commit 4ef8fe945157324cd0f1cb49393213020903c35c
 }
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 
@@ -52,8 +52,8 @@
 %{!?gitver: %global gitver %{name}-%{version}-%{release} }
 
 Name:           %{package_name}
-Version:        0.5.1
-Release:        2
+Version:        0.5.2
+Release:        1
 Summary:        Spark Cluster Management for OpenShift
 License:        ASL 2.0
 URL:            https://%{import_path}
@@ -177,6 +177,11 @@ chmod 644 %{buildroot}%{_sysconfdir}/bash_completion.d/%{name}
 %endif
 
 %changelog
+* Tue Nov 28 2017 Peter MacKinnon <pmackinn@redhat.com> 0.5.2-1
+- Remove other git_var functions (pmackinn@redhat.com)
+- Remove OS_ var refs from .tito (pmackinn@redhat.com)
+- Remove OS_ROOT path dep (pmackinn@redhat.com)
+
 * Fri Nov 17 2017 Peter MacKinnon <pmackinn@redhat.com> 0.5.1-1
 - tito tagging 
 
