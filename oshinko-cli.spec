@@ -9,8 +9,8 @@
 # docker_version is the version of docker requires by packages
 %global docker_version 1.12
 %global golang_version 1.4
-# %commit and %os_git_vars are intended to be set by tito custom builders provided
-# in the .tito/lib directory. The values in this spec file will not be kept up to date.
+# %commit is intended to be set by tito custom builders provided
+# in the .tito/lib directory. The value in this spec file will not be kept up to date.
 %{!?commit:
 %global commit 8175defcbe2311f37ca4b858d2dbb7db002412e9
 }
@@ -47,7 +47,7 @@
 %global package_name oshinko-cli
 %global product_name radanalytics.io
 
-%{!?version: %global version v0.5.1}
+%{!?version: %global version v0.5.3}
 %{!?release: %global release 1}
 %{!?gitver: %global gitver %{name}-%{version}-%{release} }
 
@@ -92,8 +92,8 @@ is designed to run in an OpenShift project.
 %if 0%{do_build}
 %if 0%{make_redistributable}
 # Create Binaries for all supported arches
-%{os_git_vars} OS_BUILD_RELEASE_ARCHIVES=n make build tag=%{gitver}
-%{os_git_vars} hack/build-go.sh vendor/github.com/onsi/ginkgo/ginkgo
+make build tag=%{gitver}
+hack/build-go.sh vendor/github.com/onsi/ginkgo/ginkgo
 %else
 # Create Binaries only for building arch
 %ifarch x86_64
@@ -111,12 +111,12 @@ is designed to run in an OpenShift project.
 %ifarch s390x
   BUILD_PLATFORM="linux/s390x"
 %endif
-OS_ONLY_BUILD_PLATFORMS="${BUILD_PLATFORM}" %{os_git_vars} OS_BUILD_RELEASE_ARCHIVES=n make build tag=%{gitver}
-OS_ONLY_BUILD_PLATFORMS="${BUILD_PLATFORM}" %{os_git_vars} hack/build-go.sh vendor/github.com/onsi/ginkgo/ginkgo
+OS_ONLY_BUILD_PLATFORMS="${BUILD_PLATFORM}" make build tag=%{gitver}
+OS_ONLY_BUILD_PLATFORMS="${BUILD_PLATFORM}" hack/build-go.sh vendor/github.com/onsi/ginkgo/ginkgo
 %endif
 
 # Generate man pages
-%{os_git_vars} hack/generate-docs.sh
+hack/generate-docs.sh
 %endif
 
 %install
